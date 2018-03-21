@@ -28,6 +28,15 @@ public class PlayerController : MonoBehaviour {
     float xThrow, yThrow;
     bool isControlEnabled = true;
 
+    // For Event Systems
+    bool leftTouch = false;
+    bool rightTouch = false;
+    bool upTouch = false;
+    bool downTouch = false;
+    bool onFireTouch = false;
+
+    float touchValue = 0.2f;
+
     private void Start()
     {
         stopSpecialGun();
@@ -67,6 +76,22 @@ public class PlayerController : MonoBehaviour {
         xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
+        if (leftTouch) {
+            xThrow -= touchValue;
+        }
+
+        if (rightTouch) {
+            xThrow += touchValue;
+        }
+
+        if (upTouch) {
+            yThrow += touchValue;
+        }
+
+        if (downTouch) {
+            yThrow -= touchValue;
+        }
+
         float xOffset = xThrow * controlSpeed * Time.deltaTime;
         float yOffset = yThrow * controlSpeed * Time.deltaTime;
 
@@ -81,22 +106,20 @@ public class PlayerController : MonoBehaviour {
 
     void ProcessFiring()
     {
-        if (CrossPlatformInputManager.GetButton("Fire"))
-        {
+        
+        if (CrossPlatformInputManager.GetButton("Fire")) {
             SetGunsActive(true);
         }
-        else
-        {
+        else if (onFireTouch){
+            SetGunsActive(true);
+        }
+        else {
             SetGunsActive(false);
         }
 
-        var emissionModule = specialGun.GetComponent<ParticleSystem>().emission;
 
         if (CrossPlatformInputManager.GetButton("Special Fire")) {
-            
-            emissionModule.enabled = true;
-
-            Invoke("stopSpecialGun", specialGunTime);
+            ActivateSpecialGun();
         }
 
 
@@ -117,4 +140,61 @@ public class PlayerController : MonoBehaviour {
             emissionModule.enabled = isActive;
         }
     }
+
+    public void ActivateSpecialGun() {
+        var emissionModule = specialGun.GetComponent<ParticleSystem>().emission;
+        emissionModule.enabled = true;
+        Invoke("stopSpecialGun", specialGunTime);
+    }
+
+    public void ActivateGuns() {
+        onFireTouch = true;
+    }
+
+    public void DeactivateGuns() {
+        onFireTouch = false;
+    }
+
+
+    public void ProcessTouchLeft()
+    {
+        leftTouch = true;
+    }
+
+    public void CancelTouchLeft()
+    {
+        leftTouch = false;
+    }
+
+    public void ProcessTouchRight()
+    {
+        rightTouch = true;
+    }
+
+    public void CancelTouchRight()
+    {
+        rightTouch = false;
+    }
+
+    public void ProcessTouchUp()
+    {
+        upTouch = true;
+    }
+
+    public void CancelTouchUp()
+    {
+        upTouch = false;
+    }
+
+    public void ProcessTouchDown()
+    {
+        downTouch = true;
+    }
+
+    public void CancelTouchDown()
+    {
+        downTouch = false;
+    }
+
+
 }

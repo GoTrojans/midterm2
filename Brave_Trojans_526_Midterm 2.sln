@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio for Mac
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brave_Trojans_526_Midterm 2", "Brave_Trojans_526_Midterm 2.csproj", "{F4B0B822-86F6-A59D-7A84-33503F6795D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brave_Trojans_526_Midterm 2.Editor", "Brave_Trojans_526_Midterm 2.Editor.csproj", "{F39E39B5-D5A7-484B-450F-952594AC2D65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4B0B822-86F6-A59D-7A84-33503F6795D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B0B822-86F6-A59D-7A84-33503F6795D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B0B822-86F6-A59D-7A84-33503F6795D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B0B822-86F6-A59D-7A84-33503F6795D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39E39B5-D5A7-484B-450F-952594AC2D65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39E39B5-D5A7-484B-450F-952594AC2D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39E39B5-D5A7-484B-450F-952594AC2D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39E39B5-D5A7-484B-450F-952594AC2D65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
